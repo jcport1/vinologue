@@ -1,3 +1,3 @@
-class Wine < ApplicationController
+class WineController < ApplicationController
 
 end 
