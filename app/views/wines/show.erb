@@ -1,0 +1,11 @@
+<h1>Show Wine</h1>
+
+<h3>Name: <%= @wine.name %></h3>
+<h3>Year: <%= @wine.year %></h3>
+<h3>Varietal: <%= @wine.varietal %></h3>
+<h3>Wine Style: <%= @wine.wine_style %></h3>
+<h3>Note: <%= @wine.note %></h3>
+
+<form method="POST" action="/wines/<%= @wine.id %>">
+<input type="hidden" name="_method" value="DELETE">
+</form> 

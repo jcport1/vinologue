@@ -1,0 +1,15 @@
+<h1>All Your Wines</h1>
+
+<h2> Welcome, <%= current_user.email%></h2>
+
+<% @wines.each do |wine| %>
+   <h3><%= wine.id%>. <a href= "wines/<%= wine.id%>"><%= wine.name %></h3>
+    <% end %>
+
+
+<br>#show user's wines
+#option to edit wines 
+#option to navigate to add new wine route
+
+
+

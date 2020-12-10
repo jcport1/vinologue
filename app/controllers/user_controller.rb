@@ -30,12 +30,12 @@ class UserController < ApplicationController
 
         u = User.find_by_email(params[:email])
     
-        if user && user.authenticate(params[:password])
-            session[:user_id] = user.id
-            redirect '/wines'
-        else
-            redirect '/login'
-        end 
+        # if user && user.authenticate(params[:password])
+        #     session[:user_id] = user.id
+        #     redirect '/wines'
+        # else
+        #     redirect '/login'
+        # end 
     end
 
     get '/logout' do 
