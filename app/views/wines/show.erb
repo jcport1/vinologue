@@ -1,4 +1,4 @@
-<h1>Here is Your Wine, <%= current_user.user_name %>(Show View)</h1>
+<h1>Wine Profile</h1>
 
 <h3>Name: <%= @wine.name %></h3>
 <h3>Year: <%= @wine.year %></h3>
@@ -6,7 +6,7 @@
 <h3>Wine Style: <%= @wine.wine_style %></h3>
 <h3>Note: <%= @wine.note %></h3>
 
-<% if authorized_to_edit?(@post) %>
+<% if authorized_to_edit?(@wine) %>
 
 <h3><a href="/wines/<%= @wine.id %>/edit">Edit Wine </a>
 

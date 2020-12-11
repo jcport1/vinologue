@@ -27,8 +27,7 @@ end
 post '/wines' do
 
     #if valid 
-
-    redirect_if_not_logged_in 
+    # redirect_if_not_logged_in 
     wine = Wine.new(params)
     wine.user_id = current_user.id #session[:user_id]
     if wine.save #triggers validation 
@@ -50,7 +49,7 @@ get '/wines/:id/edit' do
     if authorized_to_edit?(@wine)
         erb :'wines/edit'
     else 
-        flash[:error] = "Not authorized to Edit"
+        flash[:error] = "Not Authorized to Edit"
         redirect "/wines"
     end 
 end 
@@ -58,7 +57,7 @@ end
 put '/wines/:id' do
 
     @wine = Wine.find(params["id"])
-    redirect_if_not_authorized
+    # redirect_if_not_authorized
     @wine.update(params["wine"])
     redirect "/wines/#{@wine.id}"
 end 

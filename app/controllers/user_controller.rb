@@ -16,14 +16,14 @@ class UserController < ApplicationController
             flash[:message] = "Signup was Succesful!"
             redirect to '/wines'
         else 
-            flash[:error] = "Signup was Not Successful - Try Again!"
+            flash[:error] = "Signup was Not Successful - #{user.errors.full_messages.to_sentence}!"
             redirect '/signup'
         end 
     end 
 
     get '/login' do
 
-        
+
     
         erb :'/users/login'
 

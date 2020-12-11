@@ -34,6 +34,7 @@ class ApplicationController < Sinatra::Base
     def authorized_to_edit?(wine)
 
       wine.user == current_user 
+      
     end 
 
   end
