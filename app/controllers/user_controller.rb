@@ -9,14 +9,14 @@ class UserController < ApplicationController
     post '/signup' do
 
 
-        u = User.new(params)
+        user = User.new(params)
 
-        if u.email.blank? || u.password.blank? || u.user_name.blank? || User.find_by_email(params["email"])
+        if user.email.blank? || user.password.blank? || user.user_name.blank? || User.find_by_email(params["email"])
 
             redirect '/signup'
         else 
-            u.save
-            session[:user_id] = u.id
+            user.save
+            session[:user_id] = user.id
             redirect to '/wines'
         end 
     end 
@@ -32,9 +32,10 @@ class UserController < ApplicationController
         user = User.find_by(email: params[:email])
     
         if user && user.authenticate(params[:password])
-            session[:user_id] = user.id
+            session[:user_id] = user.id #this actually logsin user
             redirect '/wines'
         else
+            # flash[:error] = "Incorrect Credentials"
             redirect '/login'
         end 
     end

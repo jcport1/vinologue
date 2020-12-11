@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>Vinologue</title>
+    <title>Vinolog</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -16,10 +16,18 @@
   <body>
     <div class="wrapper">
 
+      <div class="nav">
+        <% if logged_in? %>
+          <a href="/wines">All Wines</a>
+          <a href="/wines/new">Add a Wine</a>
+          <a href="/logout">Log Out</a>
+          <% end %>
+       </div>
+
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>Vinologue</strong></small>
+        <small>&copy; 2020 <strong>Vinolog</strong></small>
       </footer>
     </div>
 

@@ -6,20 +6,26 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, 'abcdef'
+    set :session_secret, "secret_session" #enables sessions(hash)
 
   end
 
   get "/" do
+    if logged_in?
+      redirect to '/wines'
+    else 
     erb :index
+    end 
   end
 
-  helpers do 
+  helpers do
     
+    #authorization
     def logged_in?
       !!current_user
     end 
 
+    #keeps track of logged in user
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end 
