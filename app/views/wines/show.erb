@@ -6,9 +6,12 @@
 <h3>Wine Style: <%= @wine.wine_style %></h3>
 <h3>Note: <%= @wine.note %></h3>
 
+<% if authorized_to_edit?(@post) %>
+
 <h3><a href="/wines/<%= @wine.id %>/edit">Edit Wine </a>
 
 <form method="POST" action="/wines/<%= @wine.id %>">
 <input type="hidden" name="_method" value="DELETE">
 <input type="submit" value="Delete Wine">
 </form> 
+<% end %>

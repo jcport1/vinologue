@@ -9,15 +9,19 @@ end
 
 get '/wines/new' do
 
-    redirect_if_not_logged_in
-    erb :"wines/new"
+    if logged_in? 
+        erb :"wines/new"
+    else 
+        flash[:error] = "You Must be Logged In to Add New Wine"
+        redirect '/'
+    end 
 end 
 
 get '/wines/:id' do 
-
-   redirect_if_not_logged_in 
+    
+#    redirect_if_not_logged_in 
     @wine = Wine.find(params["id"])
-    erb :"wines/show"
+        erb :"wines/show"
 end
 
 post '/wines' do
@@ -43,7 +47,12 @@ get '/wines/:id/edit' do
     
     @wine = Wine.find(params["id"])
     # redirect_if_not_authorized 
-    erb :'wines/edit'
+    if authorized_to_edit?(@wine)
+        erb :'wines/edit'
+    else 
+        flash[:error] = "Not authorized to Edit"
+        redirect "/wines"
+    end 
 end 
 
 put '/wines/:id' do
@@ -62,11 +71,12 @@ delete '/wines/:id' do
     redirect '/wines'
 end 
 
-private 
+# private 
 
-def redirect_if_not_authorized
-    if @wine.user != current_user
-        redirect '/wines'
-    end 
-end
+# def redirect_if_not_authorized
+#     if @wine.user != current_user
+#         flash[:error] = "You Must Be Logged in to Add a Wine"
+#         redirect '/'
+#     end 
+# end
 end 
