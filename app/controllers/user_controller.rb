@@ -8,6 +8,7 @@ class UserController < ApplicationController
 
     post '/signup' do
 
+
         u = User.new(params)
 
         if u.email.blank? || u.password.blank? || u.user_name.blank? || User.find_by_email(params["email"])
@@ -28,14 +29,14 @@ class UserController < ApplicationController
 
     post '/login' do
 
-        u = User.find_by_email(params[:email])
+        user = User.find_by(email: params[:email])
     
-        # if user && user.authenticate(params[:password])
-        #     session[:user_id] = user.id
-        #     redirect '/wines'
-        # else
-        #     redirect '/login'
-        # end 
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect '/wines'
+        else
+            redirect '/login'
+        end 
     end
 
     get '/logout' do 

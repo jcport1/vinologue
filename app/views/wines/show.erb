@@ -1,4 +1,4 @@
-<h1>Show Wine</h1>
+<h1>Your Wine (Show View)</h1>
 
 <h3>Name: <%= @wine.name %></h3>
 <h3>Year: <%= @wine.year %></h3>
@@ -8,4 +8,5 @@
 
 <form method="POST" action="/wines/<%= @wine.id %>">
 <input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Wine">
 </form> 
