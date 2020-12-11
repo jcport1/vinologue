@@ -37,18 +37,22 @@ get '/wines/:id' do
 end
 
 post '/wines' do
+    #should authorization be added for this?
+    if !not_logged_in?
+        flash[:error] = "Whoops, You Must be Logged in to View This Page"
+        redirect '/'
+    else
+        wine = Wine.new(params)
+        wine.user_id = current_user.id #session[:user_id]
 
-    #should authorization be added for this?  
-
-    wine = Wine.new(params)
-    wine.user_id = current_user.id #session[:user_id]
-    if wine.save #triggers validation 
+            if wine.save #triggers validation 
     
-        flash[:message] = "New Wine Added Successfully!"
-        redirect '/wines'
-    else 
-        flash[:error] = "Wine Cannot be Added - Please Fill Out Required Fields"
-        redirect "/wines/new"
+                flash[:message] = "New Wine Added Successfully!"
+                redirect '/wines'
+            else 
+            flash[:error] = "Wine Cannot be Added - Please Fill Out Required Fields"
+            redirect "/wines/new"
+        end 
     end 
 end 
 
