@@ -1,10 +1,12 @@
-<h1>Your Wine (Show View)</h1>
+<h1>Here is Your Wine, <%= current_user.user_name %>(Show View)</h1>
 
 <h3>Name: <%= @wine.name %></h3>
 <h3>Year: <%= @wine.year %></h3>
 <h3>Varietal: <%= @wine.varietal %></h3>
 <h3>Wine Style: <%= @wine.wine_style %></h3>
 <h3>Note: <%= @wine.note %></h3>
+
+<h3><a href="/wines/<%= @wine.id %>/edit">Edit Wine </a>
 
 <form method="POST" action="/wines/<%= @wine.id %>">
 <input type="hidden" name="_method" value="DELETE">

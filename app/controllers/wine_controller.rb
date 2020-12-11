@@ -24,7 +24,7 @@ post '/wines' do
 
     redirect_if_not_logged_in 
     wine = Wine.new(params)
-    wine.user_id = session[:user_id]
+    wine.user_id = current_user.id #session[:user_id]
     wine.save
     redirect '/wines'
 end 
@@ -34,7 +34,7 @@ end
 get '/wines/:id/edit' do
     
     @wine = Wine.find(params["id"])
-    redirect_if_not_authorized 
+    # redirect_if_not_authorized 
     erb :'wines/edit'
 end 
 
@@ -58,7 +58,7 @@ private
 
 def redirect_if_not_authorized
     if @wine.user != current_user
-        redirect to '/wines'
+        redirect '/wines'
     end 
 end
 end 

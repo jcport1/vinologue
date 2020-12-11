@@ -1,8 +1,8 @@
 class UserController < ApplicationController
     
-    get '/signup' do 
+    get '/signup' do
 
-        erb :"users/new"
+        erb :'users/new'
 
     end 
 
@@ -23,7 +23,7 @@ class UserController < ApplicationController
 
     get '/login' do
     
-        erb :"/users/login"
+        erb :'/users/login'
 
     end 
 
@@ -33,9 +33,10 @@ class UserController < ApplicationController
     
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id #this actually logsin user
+            flash[:message] = "Welcome, #{user.user_name}"
             redirect '/wines'
         else
-            # flash[:error] = "Incorrect Credentials"
+            flash[:error] = "Invalid Credentials - Try again"
             redirect '/login'
         end 
     end
