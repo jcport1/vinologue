@@ -57,17 +57,22 @@ end
 put '/wines/:id' do
 
     @wine = Wine.find(params["id"])
-    # redirect_if_not_authorized
-    @wine.update(params["wine"])
+
+    if authorized_to_edit?(@wine)
+        @wine.update(params["wine"])
+    else 
     redirect "/wines/#{@wine.id}"
+    end 
 end 
 
 delete '/wines/:id' do
 
-    @wine = Wine.find(param["id"])
-    redirect_if_not_authorized
-    @wine.destroy
+    @wine = Wine.find(params["id"])
+    if authorized_to_edit?(@wine)
+        @wine.destroy
+    else
     redirect '/wines'
+    end 
 end 
 
 # private 
