@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
 
-    has_secure_password
+    has_secure_password #validates password built-in
     has_many :wines
 
-    validates :user_name, :email, :password, presence: true 
+    validates :user_name, :email, presence: true 
+    validates :email, uniqueness: true 
    
 end 
