@@ -22,11 +22,19 @@ end
 
 post '/wines' do
 
+    #if valid 
+
     redirect_if_not_logged_in 
     wine = Wine.new(params)
     wine.user_id = current_user.id #session[:user_id]
-    wine.save
-    redirect '/wines'
+    if wine.save #triggers validation 
+    
+        flash[:message] = "New Wine Added Successfully!"
+        redirect '/wines'
+    else 
+        flash[:error] = "Wine Cannot be Added - Please Fill Out Required Fields"
+        redirect "/posts/new"
+    end 
 end 
 
 
