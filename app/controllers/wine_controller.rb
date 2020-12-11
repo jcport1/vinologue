@@ -3,7 +3,13 @@ class WineController < ApplicationController
 get '/wines' do
 
     @wines = Wine.all
-    erb :"wines/index" 
+
+    if logged_in? 
+        erb :"wines/index"
+    else 
+        flash[:error] = "Whoops, You Must be Logged in to View This Page"
+        redirect '/'
+    end 
 
 end 
 
@@ -19,15 +25,21 @@ end
 
 get '/wines/:id' do 
     
-#    redirect_if_not_logged_in 
     @wine = Wine.find(params["id"])
+    if logged_in?
         erb :"wines/show"
+    else 
+        flash[:error] = "Whoops, You Must be Logged in to View This Page"
+        redirect '/'
+    end 
+
+
 end
 
 post '/wines' do
 
-    #if valid 
-    # redirect_if_not_logged_in 
+    #should authorization be added for this?  
+
     wine = Wine.new(params)
     wine.user_id = current_user.id #session[:user_id]
     if wine.save #triggers validation 

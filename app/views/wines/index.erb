@@ -4,13 +4,8 @@
 
 <% @wines.each do |wine| %>
    <h3><%= wine.id%>. <a href= "wines/<%= wine.id%>"><%= wine.name %></a></h3>
-   <p> Added By: <%= wine.user.user_name%></p>
+   <p> Added by: <%= wine.user.user_name%></p>
     <% end %>
-
-
-<br>#show user's wines
-#option to edit wines 
-#option to navigate to add new wine route
 
 
 
