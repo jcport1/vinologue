@@ -11,13 +11,13 @@ class UserController < ApplicationController
 
         user = User.new(params)
 
-        if user.email.blank? || user.password.blank? || user.user_name.blank? || User.find_by_email(params["email"])
-
-            redirect '/signup'
-        else 
-            user.save
+        if user.save 
             session[:user_id] = user.id
+            flash[:message] = "Signup was Succesful!"
             redirect to '/wines'
+        else 
+            flash[:error] = "Signup was Not Successful - Try Again!"
+            redirect '/signup'
         end 
     end 
 

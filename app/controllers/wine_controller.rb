@@ -33,7 +33,7 @@ post '/wines' do
         redirect '/wines'
     else 
         flash[:error] = "Wine Cannot be Added - Please Fill Out Required Fields"
-        redirect "/posts/new"
+        redirect "/wines/new"
     end 
 end 
 
