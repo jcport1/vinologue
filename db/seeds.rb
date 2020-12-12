@@ -8,9 +8,3 @@ Review.create(wine_name: "Acadie", rating: 3, comment:"not bad - good value", us
 Review.create(wine_name: "Botego Norton Reserve", rating: 2, comment:"it was ok", user_id:keisha.id)
 Review.create(wine_name: "Pull Red Wine Blend", rating: 4, comment:"dry but good", user_id:marco.id)
 Review.create(wine_name: "Channing Daughters Bianco Pettilant ", rating: 5, comment:"This was delicious. I can't wait to try more!", user_id:keisha.id)
-
-
-# Wine.create(name: "Chateau du moulin-a-vent", year: 2018, varietal: "beaujolais nouveau", note:"delicious", user_id:dan.id)
-# Wine.create(name: "Acadie", year: 2018, varietal: "pinot noir", note:"full-bodied", user_id:mary.id)
-# Wine.create(name: "Botego Norton Reserve", year: 2017, varietal: "malbec", note:"tasty", user_id:mary.id)
-# Wine.create(name: "Pull Red Wine Blend", year: 2017, varietal: "red wine blend", note:"satisfying", user_id:mary.id)
