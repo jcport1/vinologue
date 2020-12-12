@@ -6,7 +6,6 @@ class CreateWines < ActiveRecord::Migration
       t.string :varietal
       t.string :wine_style
       t.string :note
-      t.integer :user_id
     end 
   end
 end
