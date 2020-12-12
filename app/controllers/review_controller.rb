@@ -5,7 +5,7 @@ class ReviewController < ApplicationController
         @reviews = Review.all
     
         if logged_in? 
-            erb :"review/index"
+            erb :"reviews/index"
         else 
             flash[:error] = "Whoops, You Must be Logged in to View This Page"
             redirect '/'
@@ -27,7 +27,7 @@ class ReviewController < ApplicationController
         
         @review = Review.find(params["id"])
         if logged_in?
-            erb :"review/show"
+            erb :"reviews/show"
         else 
             flash[:error] = "Whoops, You Must be Logged in to View This Page"
             redirect '/'
@@ -48,7 +48,7 @@ class ReviewController < ApplicationController
                 if review.save #triggers validation 
         
                     flash[:message] = "New Review Added Successfully!"
-                    redirect '/review'
+                    redirect '/reviews'
                 else 
                 flash[:error] = "Review Cannot be Added - Please Fill Out Required Fields"
                 redirect "/reviews/new"
@@ -70,14 +70,14 @@ class ReviewController < ApplicationController
         end 
     end 
     
-    put '/wines/:id' do
+    put '/reviews/:id' do
     
         @review = Review.find(params["id"])
     
         if authorized_to_edit?(@review)
-            @review.update(params["wine"])
+            @review.update(params["review"])
         else 
-        redirect "/wines/#{@review.id}"
+        redirect "/reviews/#{@review.id}"
         end 
     end 
     
