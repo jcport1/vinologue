@@ -1,0 +1,9 @@
+<h1>All Reviews For Wines</h1>
+
+<h2> Let's Explore Some Wines, <%= current_user.email%></h2>
+
+<% @reviews.each do |review| %>
+   <h3><%= review.id%>. <a href= "reviews/<%= review.id%>"><%= review.wine_name %></a></h3>
+   <h4>Rating: <%= review.rating %></h4>
+   <p> Added by: <%= review.user.user_name%></p>
+    <% end %>
