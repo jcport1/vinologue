@@ -14,7 +14,7 @@ class UserController < ApplicationController
         if user.save 
             session[:user_id] = user.id
             flash[:message] = "Signup was Succesful!"
-            redirect to '/wines'
+            redirect to '/reviews'
         else 
             flash[:error] = "Signup was Not Successful - #{user.errors.full_messages.to_sentence}!"
             redirect '/signup'

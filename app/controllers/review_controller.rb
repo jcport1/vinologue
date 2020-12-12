@@ -38,10 +38,10 @@ class ReviewController < ApplicationController
     
     post '/reviews' do
         #should authorization be added for this?
-        if !not_logged_in?
-            flash[:error] = "Whoops, You Must be Logged in to View This Page"
-            redirect '/'
-        else
+        # if !not_logged_in?
+        #     flash[:error] = "Whoops, You Must be Logged in to View This Page"
+        #     redirect '/'
+        # else
             review = Review.new(params)
             review.user_id = current_user.id #session[:user_id]
     
@@ -52,8 +52,7 @@ class ReviewController < ApplicationController
                 else 
                 flash[:error] = "Review Cannot be Added - Please Fill Out Required Fields"
                 redirect "/reviews/new"
-            end 
-        end 
+           end 
     end 
     
     
