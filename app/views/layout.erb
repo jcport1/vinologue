@@ -26,8 +26,9 @@
 
       <div class="nav">
         <% if logged_in? %>
-          <a href="/reviews">All Reviews</a>
-          <a href="/reviews/new">Add a Review</a>
+          <a href="/wines">Wine Index</a>
+          <a href="/users/<%=current_user.id%>">My Wines</a>
+          <a href="/wines/new">Add a Wine</a>
           <a href="/logout">Log Out</a>
           <% end %>
        </div>

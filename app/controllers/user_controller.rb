@@ -14,7 +14,7 @@ class UserController < ApplicationController
         if user.save 
             session[:user_id] = user.id
             flash[:message] = "Signup was Succesful!"
-            redirect to '/reviews'
+            redirect to '/wines'
         else 
             flash[:error] = "Signup was Not Successful - #{user.errors.full_messages.to_sentence}!"
             redirect '/signup'
@@ -34,7 +34,7 @@ class UserController < ApplicationController
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id #this actually logsin user
             flash[:message] = "Welcome, #{user.user_name}"
-            redirect '/reviews'
+            redirect '/wines'
         else
             flash[:error] = "Invalid Credentials - Try again"
             redirect '/login'
@@ -44,5 +44,10 @@ class UserController < ApplicationController
     get '/logout' do 
         session.delete(:user_id)
         redirect '/'
+    end 
+
+    get '/users/:id' do
+
+        erb :"users/show"
     end 
 end 

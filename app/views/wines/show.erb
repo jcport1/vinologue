@@ -1,17 +1,17 @@
 <h1>Wine Profile</h1>
 
-# <h3>Name: <%= @wine.name %></h3>
-# <h3>Year: <%= @wine.year %></h3>
-# <h3>Varietal: <%= @wine.varietal %></h3>
-# <h3>Wine Style: <%= @wine.wine_style %></h3>
-# <h3>Note: <%= @wine.note %></h3>
+<h3>Name: <%= @wine.name %></h3>
+<h3>Year: <%= @wine.year %></h3>
+<h3>Varietal: <%= @wine.varietal %></h3>
+<h3>Wine Style: <%= @wine.wine_style %></h3>
+<h3>Note: <%= @wine.note %></h3>
 
-# <% if authorized_to_edit?(@wine) %>
+<% if authorized_to_edit?(@wine) %>
 
-# <h3><a href="/wines/<%= @wine.id %>/edit">Edit Wine </a>
+<h3><a href="/wines/<%= @wine.id %>/edit">Edit Wine </a>
 
-# <form method="POST" action="/wines/<%= @wine.id %>">
-# <input type="hidden" name="_method" value="DELETE">
-# <input type="submit" value="Delete Wine">
-# </form> 
-# <% end %>
+<form method="POST" action="/wines/<%= @wine.id %>">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Wine">
+</form> 
+<% end %>

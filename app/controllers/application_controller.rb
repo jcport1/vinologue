@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     if logged_in?
-      redirect to '/reviews'
+      redirect to '/wines'
     else 
     erb :index
     end 
@@ -33,7 +33,7 @@ class ApplicationController < Sinatra::Base
 
     def authorized_to_edit?(review)
 
-      review.user == current_user 
+      wine.user == current_user 
       
     end 
 
