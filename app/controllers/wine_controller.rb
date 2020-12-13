@@ -39,11 +39,12 @@ end
 
 post '/wines' do
     #should authorization be added for this?
-    if !not_logged_in?
+    if !logged_in?
         flash[:error] = "Whoops, You Must be Logged in to View This Page"
         redirect '/'
     else
         wine = Wine.new(params)
+        
         wine.user_id = current_user.id #session[:user_id]
 
             if wine.save #triggers validation 

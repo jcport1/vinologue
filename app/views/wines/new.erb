@@ -4,11 +4,12 @@
     <h3>Name: <input type="text" name="name"></h3>
     <h3>Year: <input type="text" name="year"></h3>
     <h3>Varietal: <input type="text" name="varietal"></h3>
-    <h3>Rating Style: <input type="text" name="rating"></h3>
+    <h3>Rating: <input type="text" name="rating"></h3>
     <h3>Choose a Wine Type: </h3>
         <%@wine_types.each do |type|%>
-            <input type="radio", name="type[]" value="<%= type.id%>"><%= type.name%>
+            <input type="radio", name="wine_type_id" value="<%= type.id%>"><%= type.name%>
             <%end%> 
             <br><br>
+    
 <p><input type="SUBMIT" value="Add Wine"></p>
 </form>
