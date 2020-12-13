@@ -2,10 +2,9 @@
 
 <form method="POST" action="/reviews/<%= @review.id %>">
 <input type="hidden" name="_method" value="PUT">
-    <h3>Name of Wine: <input type="wine[name]" name="name" value="<%=@wine.name%>"></h3>
-    <h3>Year: <input type="text" name="wine[year]" value="<%=@wine.year%>"></h3>
-    <h3>Varietal: <input type="text" name="wine[varietal]" value="<%=@wine.varietal%>"></h3>
-    <h3>Wine Style: <input type="text" name="wine[wine_style]" value="<%=@wine.wine_style%>"></h3>
+    <h3>Name of Wine: <input type="text" name="review[wine_name]" value="<%=@review.wine_name%>"></h3>
+    <h3>Rating: <input type="text" name="review[rating]" value="<%=@review.rating%>"></h3>
+    <h3>Comment: <input type="text" name="review[comment]" value="<%=@review.comment%>"></h3>
 <input type="submit" value="Update Wine">
 </form>
     
