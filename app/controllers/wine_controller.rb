@@ -15,7 +15,8 @@ end
 
 get '/wines/new' do
 
-    if logged_in? 
+    if logged_in?
+        @wine_types = WineType.all 
         erb :"wines/new"
     else 
         flash[:error] = "You Must be Logged In to Add New Wine"
