@@ -3,7 +3,7 @@
 <form method="POST" action="/wines/<%= @wine.id %>">
 
 <input type="hidden" name="_method" value="PUT">
-    <h3>Name: <input type="wine[name]" name="name" value="<%=@wine.name%>"></h3>
+    <h3>Name: <input type="wine[name]" name="wine[name]" value="<%=@wine.name%>"></h3>
     <h3>Year: <input type="text" name="wine[year]" value="<%=@wine.year%>"></h3>
     <h3>Varietal: <input type="text" name="wine[varietal]" value="<%=@wine.varietal%>"></h3>
     <h3>Rating: <input type="text" name="wine[rating]" value="<%=@wine.rating%>"></h3>

@@ -50,10 +50,10 @@ post '/wines' do
             if wine.save #triggers validation 
     
                 flash[:message] = "New Wine Added Successfully!"
-                redirect '/wines'
+                redirect "/users/#{current_user.id}"
             else 
             flash[:error] = "Wine Cannot be Added - Please Fill Out Required Fields"
-            redirect "/wines/new"
+            redirect "/users/#{current_user.id}"
         end 
     end 
 end 
@@ -78,6 +78,7 @@ put '/wines/:id' do
 
     if authorized_to_edit?(@wine)
         @wine.update(params["wine"])
+        redirect "/wines/#{@wine.id}"
     else 
     redirect "/wines/#{@wine.id}"
     end 
@@ -88,6 +89,8 @@ delete '/wines/:id' do
     @wine = Wine.find(params["id"])
     if authorized_to_edit?(@wine)
         @wine.destroy
+        flash[:message] = "Wine Deleted Successfully"
+        redirect '/wines'
     else
     redirect '/wines'
     end 
