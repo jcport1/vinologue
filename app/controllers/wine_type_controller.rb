@@ -1,93 +1,93 @@
 class WineTypeController < ApplicationController
 
-#     get '/reviews' do
+    get '/wine_types' do
 
-#         @reviews = Review.all
+        @wine_types = WineType.all
     
-#         if logged_in? 
-#             erb :"reviews/index"
-#         else 
-#             flash[:error] = "Whoops, You Must be Logged in to View This Page"
-#             redirect '/'
-#         end 
+        if logged_in? 
+            erb :"wine_types/index"
+        else 
+            flash[:error] = "Whoops, You Must be Logged in to View This Page"
+            redirect '/'
+        end 
     
-#     end 
+    end 
     
-#     get '/reviews/new' do
+    get '/wine_types/new' do
     
-#         if logged_in? 
-#             erb :"reviews/new"
-#         else 
-#             flash[:error] = "You Must be Logged In to Add New Wine"
-#             redirect '/'
-#         end 
-#     end 
+        if logged_in? 
+            erb :"wine_types/new"
+        else 
+            flash[:error] = "You Must be Logged In to Add New Wine"
+            redirect '/'
+        end 
+    end 
     
-#     get '/reviews/:id' do 
+    get '/wine_types/:id' do 
         
-#         @review = Review.find(params["id"])
-#         if logged_in?
-#             erb :"reviews/show"
-#         else 
-#             flash[:error] = "Whoops, You Must be Logged in to View This Page"
-#             redirect '/'
-#         end 
+        @wine_type = WineType.find(params["id"])
+        if logged_in?
+            erb :"reviews/show"
+        else 
+            flash[:error] = "Whoops, You Must be Logged in to View This Page"
+            redirect '/'
+        end 
     
     
-#     end
+    end
     
-#     post '/reviews' do
-#         #should authorization be added for this?
-#         # if !not_logged_in?
-#         #     flash[:error] = "Whoops, You Must be Logged in to View This Page"
-#         #     redirect '/'
-#         # else
-#             review = Review.new(params)
-#             review.user_id = current_user.id #session[:user_id]
+    post '/wine_types' do
+        #should authorization be added for this?
+        # if !not_logged_in?
+        #     flash[:error] = "Whoops, You Must be Logged in to View This Page"
+        #     redirect '/'
+        # else
+            wine_type = WineType.new(params)
+            wine_type.user_id = current_user.id #session[:user_id]
     
-#                 if review.save #triggers validation 
+                if wine_type.save #triggers validation 
         
-#                     flash[:message] = "New Review Added Successfully!"
-#                     redirect "/users/#{current_user.id}"
-#                 else 
-#                 flash[:error] = "Review Cannot be Added - Please Fill Out Required Fields"
-#                 redirect "/reviews/new"
-#            end 
-#     end 
+                    flash[:message] = "New Wine Type Added Successfully!"
+                    redirect "/users/#{current_user.id}"
+                else 
+                flash[:error] = "Wine Type Cannot be Added - Please Fill Out Required Fields"
+                redirect "/wine_types/new"
+           end 
+    end 
     
     
     
-#     get '/reviews/:id/edit' do
+    get '/reviews/:id/edit' do
         
-#         @review = Review.find(params["id"])
-#         # redirect_if_not_authorized 
-#         if authorized_to_edit?(@review)
-#             erb :'reviews/edit'
-#         else 
-#             flash[:error] = "Not Authorized to Edit"
-#             redirect "/reviews"
-#         end 
-#     end 
+        @review = Review.find(params["id"])
+        # redirect_if_not_authorized 
+        if authorized_to_edit?(@review)
+            erb :'reviews/edit'
+        else 
+            flash[:error] = "Not Authorized to Edit"
+            redirect "/reviews"
+        end 
+    end 
     
-#     put '/reviews/:id' do
+    put '/reviews/:id' do
     
-#         @review = Review.find(params["id"])
+        @review = Review.find(params["id"])
     
-#         if authorized_to_edit?(@review)
-#             @review.update(params["review"])
-#         else 
-#         redirect "/reviews/#{@review.id}"
-#         end 
-#     end 
+        if authorized_to_edit?(@review)
+            @review.update(params["review"])
+        else 
+        redirect "/reviews/#{@review.id}"
+        end 
+    end 
     
-#     delete '/review/:id' do
+    delete '/review/:id' do
     
-#         @review = Review.find(params["id"])
-#         if authorized_to_edit?(@review)
-#             @review.destroy
-#         else
-#         redirect '/reviews'
-#         end 
-#     end 
+        @review = Review.find(params["id"])
+        if authorized_to_edit?(@review)
+            @review.destroy
+        else
+        redirect '/reviews'
+        end 
+    end 
 
 end 
