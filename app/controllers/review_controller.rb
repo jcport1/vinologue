@@ -57,9 +57,9 @@ class ReviewController < ApplicationController
     
     
     
-    get '/wines/:id/edit' do
+    get '/reviews/:id/edit' do
         
-        @wine = Wine.find(params["id"])
+        @review = Review.find(params["id"])
         # redirect_if_not_authorized 
         if authorized_to_edit?(@review)
             erb :'reviews/edit'
