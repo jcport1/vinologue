@@ -2,6 +2,6 @@
 
 <h2> Let's Explore Some Wines, <%= current_user.first_name...%></h2>
 
-<% @wine_type.each do |type| %>
-   <h3><% wine_type.id%>. <a href= "wine_types/<%= wine_type.id%>"><%= wine_type.name %></a></h3>
+<% @wine_types.each do |type| %>
+   <h3><% type.id%>. <a href= "wine_types/<%= type.id%>"><%= type.name %></a></h3>
     <% end %>
