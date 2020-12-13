@@ -36,7 +36,7 @@ class WineTypeController < ApplicationController
             redirect '/'
         end 
     
-    
+
     end
     
     # post '/wine_types' do

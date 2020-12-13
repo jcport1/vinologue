@@ -49,6 +49,12 @@ class UserController < ApplicationController
     get '/users/:id' do
 
         @user = User.find(params["id"])
-        erb :"users/show"
+
+        if logged_in?
+            erb :"users/show"
+        else
+            flash[:error] = "Whoops, You Must be Logged in to View This Page"
+            redirect "/"
+        end 
     end 
 end 
