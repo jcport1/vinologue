@@ -52,7 +52,7 @@ post '/wines' do
                 flash[:message] = "New Wine Added Successfully!"
                 redirect "/users/#{current_user.id}"
             else 
-            flash[:error] = "Wine Cannot be Added - Please Fill Out Required Fields"
+            flash[:error] = "Wine Cannot be Added - #{wine.errors.full_messages.to_sentence}"
             redirect "/users/#{current_user.id}"
         end 
     end 
