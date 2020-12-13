@@ -1,15 +1,3 @@
-<h1> Wine Type Region </h1>
+<h1> Wine Type Show Page</h1>
+#Leave Page for Possible Expansion
 
-<h3>Name of Wine: <%= @review.wine_name %></h3>
-<h3>Rating: <%= @review.rating %></h3>
-<h3>Comment: <%= @review.comment %></h3>
-
-<% if authorized_to_edit?(@review) %>
-
-<h3><a href="/reviews/<%= @review.id %>/edit">Edit Review </a>
-
-<form method="POST" action="/reviews/<%= @review.id %>">
-<input type="hidden" name="_method" value="DELETE">
-<input type="submit" value="Delete Review">
-</form> 
-<% end %>

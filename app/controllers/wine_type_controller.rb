@@ -29,13 +29,13 @@ class WineTypeController < ApplicationController
     get '/wine_types/:id' do 
         
         @wine_type = WineType.find(params["id"])
+
         if logged_in?
-            erb :"reviews/show"
+            erb :"wine_types/show"
         else 
             flash[:error] = "Whoops, You Must be Logged in to View This Page"
             redirect '/'
         end 
-    
 
     end
     

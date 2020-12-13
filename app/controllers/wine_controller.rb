@@ -44,7 +44,6 @@ post '/wines' do
         redirect '/'
     else
         wine = Wine.new(params)
-        
         wine.user_id = current_user.id #session[:user_id]
 
             if wine.save #triggers validation 

@@ -1,6 +1,6 @@
-<h1><%= @user.first_name%>'s Wine Collection</h1>
+<h1><%= @user.first_name.capitalize%>'s Wine Collection</h1>
 
-<h2>Favorite Wine: <%=@user.favorite_wine%>
+<h2>Favorite Wine: <%=@user.favorite_wine.titleize%>
 
 <%@user.wines.each_with_index do |wine, index| %>
     <h3><%= index+1 %>. <a href="/wines/<%= wine.id%>"><%=wine.name%></a></h3>
