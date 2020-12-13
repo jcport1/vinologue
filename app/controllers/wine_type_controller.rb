@@ -1,4 +1,4 @@
-class ReviewController < ApplicationController
+class WineTypeController < ApplicationController
 
 #     get '/reviews' do
 
