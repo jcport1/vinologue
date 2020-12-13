@@ -4,8 +4,10 @@ class CreateWines < ActiveRecord::Migration
       t.string :name
       t.integer :year
       t.string :varietal
-      t.string :wine_style
-      t.string :note
+      t.integer :rating
+      t.string :comment
+      t.integer :user_id
+      t.integer :wine_type_id
     end 
   end
 end
