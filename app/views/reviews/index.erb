@@ -1,6 +1,6 @@
 <h1>All Reviews For Wines</h1>
 
-<h2> Let's Explore Some Wines, <%= current_user.email%></h2>
+<h2> Let's Explore Some Wines, <%= current_user.first_name...%></h2>
 
 <% @reviews.each do |review| %>
    <h3><%= review.id%>. <a href= "reviews/<%= review.id%>"><%= review.wine_name %></a></h3>
