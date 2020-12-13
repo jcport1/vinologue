@@ -5,5 +5,5 @@
 <% @reviews.each do |review| %>
    <h3><%= review.id%>. <a href= "reviews/<%= review.id%>"><%= review.wine_name %></a></h3>
    <h4>Rating: <%= review.rating %></h4>
-   <p> Added by: <%= review.user.user_name%></p>
+   <p> Added by: <%= review.user.first_name %></p>
     <% end %>
