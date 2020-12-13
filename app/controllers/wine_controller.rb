@@ -2,7 +2,7 @@ class WineController < ApplicationController
 
 get '/wines' do
 
-    @wines = Wine.all
+    @users = User.all
 
     if logged_in? 
         erb :"wines/index"

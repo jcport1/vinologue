@@ -1,5 +1,5 @@
 <h1><%= current_user.first_name%>'s Wine Collection</h1>
 
-<%current_user.wines.each do |wine| %>
-    <h3><a href="/wines/<%= wine.id%>"><%=wine.name%></a></h3>
+<%current_user.wines.each_with_index do |wine, index| %>
+    <h3><%= index+1 %>. <a href="/wines/<%= wine.id%>"><%=wine.name%></a></h3>
 <%end%> 

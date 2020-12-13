@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end 
 
-    def authorized_to_edit?(review)
+    def authorized_to_edit?(wine)
 
       wine.user == current_user 
       

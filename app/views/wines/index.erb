@@ -2,9 +2,12 @@
 
 <h2> Let's Explore Some Wines, <%= current_user.first_name%></h2>
 
-<% @wines.each do |wine| %>
-   <h3><%= wine.id%>. <a href= "wines/<%= wine.id%>"><%= wine.name %></a></h3>
+<% @users.each do |user| %>
+   <h3><%= user.id%>. <a href= "users/<%= user.id%>"><%= user.first_name %>'s Wine Collection</a></h3>
+      <% user.wines.each do |wine| %>
+         <h4> - <%= wine.name%></h4>
     <% end %>
+<% end %>
 
 
 
