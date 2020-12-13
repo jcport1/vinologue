@@ -3,6 +3,9 @@ class WineTypeController < ApplicationController
     get '/wine_types' do
 
         @wine_types = WineType.all
+        # @wines = Wine.all 
+
+        # binding.pry 
     
         if logged_in? 
             erb :"wine_types/index"

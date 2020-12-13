@@ -3,5 +3,8 @@
 <h2> Let's Explore Some Wines, <%= current_user.first_name...%></h2>
 
 <% @wine_types.each do |type| %>
-   <h3><% type.id%>. <a href= "wine_types/<%= type.id%>"><%= type.name %></a></h3>
+   <h2><%= type.name.titleize %></a></h2>
+      <% type.wines.each do |wine| %>
+         <h4> - <a href="wines/<%= wine.id%>"><%= wine.name %></a></h4>
+         <% end %>
     <% end %>
