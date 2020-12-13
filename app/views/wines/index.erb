@@ -5,7 +5,7 @@
 <% @users.each do |user| %>
    <h3><%= user.id%>. <a href= "users/<%= user.id%>"><%= user.first_name %>'s Wine Collection</a></h3>
       <% user.wines.each do |wine| %>
-         <h4> - <%= wine.name%></h4>
+         <h4> - <a href= "wines/<%= wine.id%>"><%= wine.name%></a></h4>
     <% end %>
 <% end %>
 
