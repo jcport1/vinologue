@@ -1,5 +1,5 @@
 
-# Vinolog
+## Vinolog
 
 This Sinatra MVC web app allows the user to create and track wines in a collection. 
 
