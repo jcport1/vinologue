@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20201213153752) do
     t.string  "name"
     t.integer "year"
     t.string  "varietal"
-    t.integer "rating"
+    t.integer "quantity"
     t.string  "comment"
     t.integer "user_id"
     t.integer "wine_type_id"
