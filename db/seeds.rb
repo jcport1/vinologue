@@ -1,3 +1,7 @@
+#Wine.destroy_all
+#User.destroy_all
+#Wine_type.destroy_all
+
 dan = User.create(first_name: "Dan",user_name:"dan1", email: "dan@dan.com", password: "123", favorite_wine: "Malbec")
 mary = User.create(first_name: "Mary",user_name:"mary1", email: "mary@mary.com", password: "123", favorite_wine: "Cabernet Sauvignon")
 keisha = User.create(first_name: "Kesiha",user_name:"keisha1", email: "keisha@keisha.com", password: "123", favorite_wine: "Petillant Naturel")

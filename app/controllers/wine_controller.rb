@@ -83,6 +83,19 @@ put '/wines/:id' do
     end 
 end 
 
+get '/search' do 
+
+    @searched_wine = Wine.find_by(name: params[:name])
+
+    if @searched_wine 
+
+     redirect "/wines/#{@searched_wine.id}"
+    else 
+     flash[:error] = "Wine Not Found"
+     redirect "/wines"
+    end 
+end 
+
 delete '/wines/:id' do
 
     @wine = Wine.find(params["id"])

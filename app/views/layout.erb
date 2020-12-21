@@ -31,6 +31,11 @@
           <a href="/users/<%=current_user.id%>">My Wines</a>&nbsp;
           <a href="/wines/new">Add a Wine</a>&nbsp;
           <a href="/wine_types">Explore Wines</a>&nbsp;
+          <form method="" action="/search"
+          <p>Search for Wine <input type="text" name="name">
+          <input type="SUBMIT" value="Search">
+          </form></p>
+
           <a href="/logout">Log Out</a>
           <% end %>
        </div>
