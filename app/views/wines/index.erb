@@ -4,7 +4,7 @@
 
 <% @users.each do |user| %>
    <h3><%= user.id%>. <a href= "users/<%= user.id%>"><%= user.first_name.capitalize %>'s Wine Collection</a></h3>
-      <h4>- includes <%= user.wines.size %> wine(s) </h4>
+      <h4>- includes <%= user.wines.size %> wine profile(s)</h4>
     <% end %>
 
 
