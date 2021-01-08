@@ -4,15 +4,15 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta charset="utf-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Vinolog</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="/stylesheets/main.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    # <link rel="stylesheet" href="/stylesheets/main.css" />
+    # <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/solar/bootstrap.min.css" integrity="sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd" crossorigin="anonymous">
   </head>
   <body>
     <div class="wrapper">
@@ -31,12 +31,11 @@
           <a href="/users/<%=current_user.id%>">My Wines</a>&nbsp;
           <a href="/wines/new">Add a Wine</a>&nbsp;
           <a href="/wine_types">Explore Wines</a>&nbsp;
-          <form method="" action="/search"
-          <p>Search for Wine <input type="text" name="name">
+          <a href="/logout">Log Out</a>&nbsp;
+          <form method="" action="/search">
+          <h6>Search for Wine <input type="text" name="name">
           <input type="SUBMIT" value="Search">
-          </form></p>
-
-          <a href="/logout">Log Out</a>
+          </form></h6> 
           <% end %>
        </div>
 
